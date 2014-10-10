@@ -1,0 +1,12 @@
+* installing *source* package 'ktabtools' ...
+** R
+** preparing package for lazy loading
+** help
+Avis : E:/works/SVNprojects/ktabstools/trunk/Rpackage/ktabtools/man/predict.mbpls.Rd:31: '}' inattendu(e)
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded
+*** arch - i386
+*** arch - x64
+
+* DONE (ktabtools)

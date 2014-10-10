@@ -1,0 +1,26 @@
+= Introduction =
+
+Add your content here.
+
+
+= description =
+ * Inertia operater
+WD and VQ
+
+ * interstructure
+RV matrix
+Typological values
+Tables weights
+
+ * compromise
+
+
+ * intrastructure
+trajectories (Lavit 1988)
+modified trajectories
+regression version (Place)
+procuste version
+no optimal method, MCOA and MFA are more efficient for representation of the intrastructure.
+
+
+= examples =

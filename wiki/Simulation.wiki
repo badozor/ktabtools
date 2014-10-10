@@ -1,0 +1,18 @@
+= Motivation =
+
+
+= Grid =
+expand.grid + noise
+
+
+= Correlated variables =
+mvnorm from R package MASS
+
+
+= Gradient =
+
+
+= Autocorrelation =
+
+
+to be completed

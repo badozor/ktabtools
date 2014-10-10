@@ -1,0 +1,52 @@
+== Introduction ==
+
+descrition of mbpls
+Add selection variable (sparsity)
+
+== Examples ==
+
+=== Multi-block partial least square analysis (MBPLS) ===
+analysis of list of K data.frames (as predictors) and one data.frame (as response)
+?mbpls
+
+=== Sparse Multi-block partial least square analysis (SMBPLS) ===
+
+?smbpls
+
+
+
+=== predictions with mbpls and smbpls ===
+ * Internal datasets
+
+ * New datasets 
+
+
+
+=== Comparison of pls and mbpls for two tables (Y and X) ===
+{{{
+require(ade4)
+require(mixOmics)
+source("mbpls.R")
+source("mbpls.default.R")
+data(linnerud)
+X <- linnerud$exercise
+Y <- linnerud$physiological
+pls1 <- pls(X, Y, mode = "classic",ncomp=3)
+mb1 <- mbpls(list(X),Y,option="uniform",deflation="super")
+par(mfrow=c(2,2))
+plot(pls1$variates$Y[,1],smb1$U[,1])
+abline(0,1,col="red")
+plot(pls1$variates$Y[,2],smb1$U[,2])
+abline(0,1,col="red")
+plot(pls1$variates$Y[,3],smb1$U[,3])
+abline(0,1,col="red")
+}}}
+
+== References ==
+ * González I., Lé Cao, K-A. and Déjean S. (2011) mixOmics: Omics Data Integration Project. URL: http://www.math.univ-toulouse.fr/~biostat/mixOmics/
+
+ * Lé Cao, K-A., González I. and Déjean S. (2009) intergrOmics: an R package to unravel relationships between two omics data sets. Bioinformatics. 25(21):2855-2856.
+
+ * Li W, Zhang S, Liu CC, Zhou XJ.(2012)Identifying multi-layer gene regulatory modules from multi-dimensional genomic data.Bioinformatics, 28(19):2458-66.
+
+ * Westerhuis et al. (1998) Analysis of multiblock and hierarchical pca and pls models, journal of chemometrics, 12, 301-321.

@@ -1,0 +1,16 @@
+kRVplot                 Multiple plot representation of RV coefficients
+kplot.mbpls             Multiple plot representation associated with
+                        object (s)mbpls
+ktabtools-package       Additional R functions related to K-table
+                        analyses
+mbpls                   Multi-Block Partial Least Squares (MBPLS)
+network.mbpls           Network representation associated with object
+                        (s)mbpls
+plot.mbpls              Plot representation associated with object
+                        (s)mbpls
+predict.mbpls           Prediction for object (s)mbpls
+smbpls                  Sparse Multi-Block Partial Least Squares
+                        (sMBPLS)
+statismod               Statis
+summary.mbpls           Summary of object (s)mbpls
+valid.mbpls             Validation of object (s)mbpls

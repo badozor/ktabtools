@@ -1,0 +1,5 @@
+plot.mbpls <-
+function (...) 
+{
+    .NotYetImplemented()
+}

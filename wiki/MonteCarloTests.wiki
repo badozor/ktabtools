@@ -1,0 +1,20 @@
+= Motivation =
+ * presentation of RV test
+ * graphical representation
+ * RV sum (global test)
+
+= Association between two configuration =
+
+RV test
+graphical representation (pairwise?)
+define the class 'corktab'
+(summary.corktab, plot.corktab)
+
+= Global tests =
+
+3 statistics:
+ * sum of RVs
+ * first eigenvalue of interstructure
+ * squared first eigenvalues of interstructure
+
+= Examples =

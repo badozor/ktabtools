@@ -1,0 +1,221 @@
+* using log directory 'E:/works/SVNprojects/ktabstools/trunk/Rpackage/ktabtools.Rcheck'
+* using R version 2.15.2 (2012-10-26)
+* using platform: x86_64-w64-mingw32 (64-bit)
+* using session charset: ISO8859-1
+* checking for file 'ktabtools/DESCRIPTION' ... OK
+* checking extension type ... Package
+* this is package 'ktabtools' version '1.0'
+* checking package namespace information ... OK
+* checking package dependencies ... OK
+* checking if this is a source package ... OK
+* checking if there is a namespace ... OK
+* checking for executable files ... OK
+* checking whether package 'ktabtools' can be installed ... OK
+* checking installed package size ... OK
+* checking package directory ... OK
+* checking for portable file names ... OK
+* checking DESCRIPTION meta-information ... NOTE
+Non-standard license specification:
+  GPL version 2 or newer
+Standardizable: TRUE
+Standardized license specification:
+  GPL (>= 2)
+* checking top-level files ... OK
+* checking for left-over files ... OK
+* checking index information ... OK
+* checking package subdirectories ... OK
+* checking R files for non-ASCII characters ... OK
+* checking R files for syntax errors ... OK
+* checking whether the package can be loaded ... OK
+* checking whether the package can be loaded with stated dependencies ... OK
+* checking whether the package can be unloaded cleanly ... OK
+* checking whether the namespace can be loaded with stated dependencies ... OK
+* checking whether the namespace can be unloaded cleanly ... OK
+* checking loading without being on the library search path ... OK
+* checking for unstated dependencies in R code ... OK
+* checking S3 generic/method consistency ... WARNING
+predict:
+  function(object, ...)
+predict.mbpls:
+  function(x, data, nf, ...)
+
+predict:
+  function(object, ...)
+predict.smbpls:
+  function(x, data, nf, ...)
+
+See section 'Generic functions and methods' of the 'Writing R
+Extensions' manual.
+* checking replacement functions ... OK
+* checking foreign function calls ... OK
+* checking R code for possible problems ... OK
+* checking Rd files ... WARNING
+Error : kRVplot.Rd: non-ASCII input and no declared encoding
+
+prepare_Rd: kplot.mbpls.Rd:18-19: Dropping empty section \seealso
+prepare_Rd: kplot.mbpls.Rd:20-21: Dropping empty section \examples
+prepare_Rd: ktabtools-package.Rd:24-25: Dropping empty section \references
+prepare_Rd: ktabtools-package.Rd:27-28: Dropping empty section \seealso
+prepare_Rd: ktabtools-package.Rd:29-30: Dropping empty section \examples
+Error : mbpls.Rd: non-ASCII input and no declared encoding
+
+prepare_Rd: network.Rd:7-9: Dropping empty section \description
+prepare_Rd: network.Rd:38-40: Dropping empty section \details
+prepare_Rd: network.Rd:41-47: Dropping empty section \value
+prepare_Rd: network.Rd:54-56: Dropping empty section \note
+prepare_Rd: network.Rd:51-53: Dropping empty section \author
+prepare_Rd: network.Rd:48-50: Dropping empty section \references
+prepare_Rd: network.Rd:60-62: Dropping empty section \seealso
+prepare_Rd: network.Rd:63-64: Dropping empty section \examples
+checkRd: (5) network.Rd:0-65: Must have a \description
+prepare_Rd: plot.mbpls.Rd:7-8: Dropping empty section \description
+prepare_Rd: plot.mbpls.Rd:17-18: Dropping empty section \details
+prepare_Rd: plot.mbpls.Rd:19-20: Dropping empty section \note
+prepare_Rd: plot.mbpls.Rd:21-22: Dropping empty section \seealso
+prepare_Rd: plot.mbpls.Rd:23-24: Dropping empty section \examples
+checkRd: (5) plot.mbpls.Rd:0-25: Must have a \description
+prepare_Rd: predict.mbpls.Rd:31: '}' inattendu(e)
+prepare_Rd: predict.mbpls.Rd:7-9: Dropping empty section \description
+prepare_Rd: predict.mbpls.Rd:19-21: Dropping empty section \details
+prepare_Rd: predict.mbpls.Rd:22-28: Dropping empty section \value
+prepare_Rd: predict.mbpls.Rd:32-33: Dropping empty section \note
+prepare_Rd: predict.mbpls.Rd:29-30: Dropping empty section \references
+prepare_Rd: predict.mbpls.Rd:34-36: Dropping empty section \seealso
+checkRd: (5) predict.mbpls.Rd:0-56: Must have a \description
+Error : smbpls.Rd: non-ASCII input and no declared encoding
+
+prepare_Rd: statismod.Rd:6-8: Dropping empty section \description
+prepare_Rd: statismod.Rd:27-29: Dropping empty section \details
+prepare_Rd: statismod.Rd:30-36: Dropping empty section \value
+prepare_Rd: statismod.Rd:43-45: Dropping empty section \note
+prepare_Rd: statismod.Rd:40-42: Dropping empty section \author
+prepare_Rd: statismod.Rd:37-39: Dropping empty section \references
+prepare_Rd: statismod.Rd:49-51: Dropping empty section \seealso
+prepare_Rd: statismod.Rd:52-53: Dropping empty section \examples
+checkRd: (5) statismod.Rd:0-54: Must have a \description
+prepare_Rd: summary.mbpls.Rd:7-9: Dropping empty section \description
+prepare_Rd: summary.mbpls.Rd:19-21: Dropping empty section \details
+prepare_Rd: summary.mbpls.Rd:22-28: Dropping empty section \value
+prepare_Rd: summary.mbpls.Rd:35-37: Dropping empty section \note
+prepare_Rd: summary.mbpls.Rd:32-34: Dropping empty section \author
+prepare_Rd: summary.mbpls.Rd:29-31: Dropping empty section \references
+prepare_Rd: summary.mbpls.Rd:41-43: Dropping empty section \seealso
+prepare_Rd: summary.mbpls.Rd:44-45: Dropping empty section \examples
+checkRd: (5) summary.mbpls.Rd:0-46: Must have a \description
+prepare_Rd: valid.mbpls.Rd:7-9: Dropping empty section \description
+prepare_Rd: valid.mbpls.Rd:19-21: Dropping empty section \details
+prepare_Rd: valid.mbpls.Rd:22-28: Dropping empty section \value
+prepare_Rd: valid.mbpls.Rd:35-37: Dropping empty section \note
+prepare_Rd: valid.mbpls.Rd:32-34: Dropping empty section \author
+prepare_Rd: valid.mbpls.Rd:29-31: Dropping empty section \references
+prepare_Rd: valid.mbpls.Rd:41-43: Dropping empty section \seealso
+prepare_Rd: valid.mbpls.Rd:44-45: Dropping empty section \examples
+checkRd: (5) valid.mbpls.Rd:0-46: Must have a \description
+problems found in 'kRVplot.Rd', 'mbpls.Rd', 'smbpls.Rd'
+* checking Rd metadata ... OK
+* checking Rd cross-references ... OK
+* checking for missing documentation entries ... WARNING
+Undocumented code objects:
+  'klistutil'
+All user-level objects in a package should have documentation entries.
+See the chapter 'Writing R documentation files' in the 'Writing R
+Extensions' manual.
+* checking for code/documentation mismatches ... WARNING
+Functions/methods with usage in documentation object 'smbpls' but not in code:
+  smpls.ktab
+
+Codoc mismatches from documentation object 'kRVplot':
+kRVplot
+  Code: function(X, whichinrow = NULL, whichincol = NULL, gap = 4,
+                 nclass = 10, coeff = 1, nrepet = 99, col =
+                 jet.colors(10), digits = 2, center = TRUE, ...)
+  Docs: function(X, whichinrow = NULL, whichincol = NULL, gap = 4,
+                 nclass = 10, coeff = 1, nrepet = 99, col =
+                 jet.colors(10), digits = 2, ...)
+  Argument names in code not in docs:
+    center
+  Mismatches in argument names:
+    Position: 10 Code: center Docs: ...
+
+Codoc mismatches from documentation object 'network':
+network.mbpls
+  Code: function(object, comp = 1, X.names = NULL, Y.names = NULL,
+                 threshold = 0.1, ...)
+  Docs: function(object, comp = 1, X.names = NULL, Y.names = NULL,
+                 keep.var = TRUE, threshold = 0.1, ...)
+  Argument names in docs not in code:
+    keep.var
+  Mismatches in argument names:
+    Position: 5 Code: threshold Docs: keep.var
+    Position: 6 Code: ... Docs: threshold
+
+* checking Rd \usage sections ... WARNING
+Undocumented arguments in documentation object 'predict.mbpls'
+  'x' 'data' 'nf'
+
+Objects in \usage without \alias in documentation object 'smbpls':
+  'smpls.ktab'
+
+Functions with \usage entries need to have the appropriate \alias
+entries, and all their arguments documented.
+The \usage entries must correspond to syntactically valid R code.
+See the chapter 'Writing R documentation files' in the 'Writing R
+Extensions' manual.
+S3 methods shown with full name in documentation object 'kplot.mbpls':
+  'kplot.mbpls'
+
+S3 methods shown with full name in documentation object 'mbpls':
+  'mbpls.default' 'mbpls.ktab'
+
+S3 methods shown with full name in documentation object 'network':
+  'network.mbpls' 'network.smbpls'
+
+S3 methods shown with full name in documentation object 'plot.mbpls':
+  'plot.smbpls'
+
+S3 methods shown with full name in documentation object 'predict.mbpls':
+  'predict.mbpls'
+
+S3 methods shown with full name in documentation object 'smbpls':
+  'smbpls.default'
+
+S3 methods shown with full name in documentation object 'summary.mbpls':
+  'summary.mbpls'
+
+The \usage entries for S3 methods should use the \method markup and not
+their full name.
+See the chapter 'Writing R documentation files' in the 'Writing R
+Extensions' manual.
+* checking Rd contents ... OK
+* checking for unstated dependencies in examples ... WARNING
+'library' or 'require' call not declared from: 'MASS'
+* checking examples ... ERROR
+Running examples in 'ktabtools-Ex.R' failed
+The error most likely occurred in:
+
+> ### Name: predict.mbpls
+> ### Title: Prediction for object (s)mbpls
+> ### Aliases: predict.mbpls predict.smbpls
+> 
+> ### ** Examples
+> 
+> # example1: Comparison of pls and mbpls for two tables (Y and X)
+> require(ade4)
+> require(mixOmics)
+> data(linnerud)
+> X <- linnerud$exercise
+> Y <- linnerud$physiological
+> pls1 <- pls(X, Y, mode = "classic",ncomp=3)
+> mb1 <- mbpls(list(X),Y,option="uniform",deflation="super")
+> par(mfrow=c(2,2))
+> plot(pls1$variates$Y[,1],mb1$U[,1])
+> abline(0,1,col="red")
+> plot(pls1$variates$Y[,2],mb1$U[,2])
+> abline(0,1,col="red")
+> plot(pls1$variates$Y[,3],mb1$U[,3])
+> abline(0,1,col="red")
+> pred1 <- predict(mb1)
+Error in UseMethod("predict") : 
+  no applicable method for 'predict' applied to an object of class "list"
+Calls: predict
+Execution halted

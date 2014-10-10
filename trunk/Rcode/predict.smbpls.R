@@ -1,0 +1,5 @@
+predict.smbpls <-
+function (...) 
+{
+    .NotYetImplemented()
+}

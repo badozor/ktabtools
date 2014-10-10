@@ -1,0 +1,218 @@
+= Introduction =
+To evaluate the performance of the 2-table and K-tables analyses, we propose to use simulations approach based on the works of Dray et al. (2003) and Gauch (1982). In the first simulation, we explore the link between two tables with co-inertia analysis (Dolédec and Chessel 1994). We define a reference table corresponding to a grid based on two variables (called 'tab0') and we add 5 random variables to the two original ones for the second data set. 
+
+= 2-table analysis: co-inertia analysis =
+{{{
+require(ade4)
+require(MASS)
+ab0 <- as.data.frame(expand.grid(1:10,1:5))
+}}}
+
+The original table (tab0) corresponds to a grid with 5 rows and 10 columns (50 points). 
+
+{{{
+tab1 <- cbind(tab0, mvrnorm(50,mu=rnorm(5,0,1),Sigma=diag(abs(rnorm(5,0,1)))))
+row.names(tab1) <- row.names(tab0) <- paste("s",1:50,sep="")
+pca0 <- dudi.pca(tab0,nf=2,scannf=FALSE)
+pca1 <- dudi.pca(tab1,nf=2,scannf=FALSE)
+par(mfrow=c(1,2))
+scatter(pca0)
+scatter(pca1)
+co1 <- coinertia(pca0,pca1,nf=2,scannf=FALSE)
+plot(co1)
+rv1 <- RV.rtest(pca0$tab,pca1$tab)
+plot(rv1)
+}}}
+
+= K-table and statis =
+In the case of K tables, the simulation procedure is based on similar idea. We used the same original table ('tab0') and we add 5 random variables to the two original ones for each data set (tab1, tab2 and tab3). 
+
+{{{
+# k-table analyses
+tab0 <- as.data.frame(expand.grid(1:10,1:5))
+row.names(tab0)<- paste("s",1:50,sep="")
+tab1 <- cbind(tab0, mvrnorm(50,mu=rnorm(5,0,1),Sigma=diag(abs(rnorm(5,0,1)))))
+tab2 <- cbind(tab0, mvrnorm(50,mu=rnorm(5,0,1),Sigma=diag(abs(rnorm(5,0,1)))))
+tab3 <- cbind(tab0, mvrnorm(50,mu=rnorm(5,0,1),Sigma=diag(abs(rnorm(5,0,1)))))
+listab <- list(tab1,tab2,tab3)
+names(listab) <- c("tab1","tab2","tab3")
+listpca <- list()
+for(i in 1:3)
+listpca[[i]] <- dudi.pca(listab[[i]],scannf=FALSE,nf=2) 
+# construction of the K-table
+ktab1 <- ktab.list.dudi(listpca,tabnames= names(listab))
+# separate analysis
+sepan1 <- sepan(ktab1)
+kplot(sepan1) 
+# statis
+statis1 <- statis(ktab1,nf=2,scannf=FALSE)
+}}}
+
+Graphical Representations related to the STATIS analysis (function plot.statis) are plotted below: 
+{{{
+plot(statis1)
+statis1$RV
+}}}
+
+The following figure corresponds to the graphical representation of the projection of the separated analysis on the compromise plan obtained by MCOA (function kplot.mcoa). 
+
+{{{
+# multiple co-inertia analysis
+mcoa1 <- mcoa(ktab1,scannf=FALSE,nf=2)
+plot(mcoa1)
+summary(mcoa1)
+RV.mcoa <- function(m,...){
+    if (!inherits(m, "mcoa")) 
+        stop("non convenient data")
+    blo <- sort(unique(m$TL[, 1]))
+    nblo <- length(blo)
+    res <- NULL
+    for(i in 1:nblo){
+        X <- scale(m$SynVar, scale = FALSE)
+        Y <- scale(m$Tl1[m$TL[,1]==i,], scale = FALSE)
+        X <- X/(sum(svd(X)$d^4)^0.25)
+        Y <- Y/(sum(svd(Y)$d^4)^0.25)
+        X <- as.matrix(X)
+        Y <- as.matrix(Y)
+        w <- sum(svd(t(X) %*% Y)$d^2)
+        res <- c(res,w)
+        }
+    names(res)<- row.names(m$cov2)
+    return(res)
+ }
+# computation of RV coefficients between reference and separate analyses
+RV.mcoa(mcoa1)
+kplot(mcoa1)
+}}}
+
+
+comparison of the tables with the original table (tab0).
+
+{{{
+# Compromise versus the original table (tab0)
+distx <- function(x,func=function(x,y) abs(x-y),...){
+	x <- as.vector(as.matrix(x))
+ 	nd <- length(x)
+ 	d1 <- matrix(0,nd,nd)
+ 	for(i in 2:nd)
+ 		for(j in 1:(i-1))
+ 			d1[i,j] <-func(x[i],x[j])
+ 	d1 <-  d1+t(d1)
+ 	d1 <- as.dist(d1,...)
+ 	return(d1)
+}
+mat01 <- as.matrix(distx(tab0[,1]))
+mat01 <- mat01 + as.matrix(distx(tab0[,2]))
+diag(mat01) <- rep(50,nrow(mat01))
+neig1 <- neig(mat01=(mat01==1))
+par(mfrow=c(1,2))
+s.label(tab0,neig=neig1,clabel=0.7,include.origin=FALSE)
+s.label(statis1$C.li,neig=neig1,clabel=0.7,include.origin=FALSE)
+par(mfrow=c(1,2))
+rv1 <- RV.rtest(tab0,statis1$C.li)
+plot(rv1,main="initial table vs compromise (statis)")
+rv2 <- RV.rtest(tab0,mcoa1$SynVar)
+plot(rv2,main="initial table vs compromise (mcoa)")
+}}}
+
+The compromises obtained by STATIS and MCOA are very similar to the original table (RV coefficient ~ 0.8). The links among tables can be tested by permutation test based on RV coefficient (Escoufier 1973, Heo & Gabriel 1997). 
+
+The function kRVplot provided the following figure (e.g. representation of the permutation test and cross-matrices):
+
+ {{{
+jet.colors <- colorRampPalette(c("#00007F", "blue", "#007FFF", "cyan","#7FFF7F", "yellow", "#FF7F00", "red", "#7F0000"))
+ 
+# additional function: hybridation of the functions statis for the computation of RV coefficients 
+# and plot.corkdist for the graphical representation (more details in the package ade4)
+  
+kRVplot <- function(X,whichinrow = NULL, whichincol = NULL,gap=4,nclass = 10,coeff = 1,nrepet=99,col=jet.colors(10),digits=2,...){
+    "hist.simul.util" <- function(sim, obs, nclass, coeff, title = "") {
+        r0 <- c(sim, obs)
+        h0 <- hist(sim, plot = FALSE, nclass = nclass)
+        y0 <- max(h0$counts)
+        l0 <- max(sim) - min(sim)
+        w0 <- l0/(log(length(sim), base = 2) + 1)
+        w0 <- w0 * coeff
+        xlim0 <- range(r0) + c(-w0, w0)
+        hist(sim, plot = TRUE, nclass = nclass, xlim = xlim0, 
+            main = title, col = grey(0.9))
+        lines(c(obs, obs), c(y0/2, 0))
+        points(obs, y0/2, pch = 18, cex = 2)
+    }
+    if (!inherits(X, "ktab")) 
+        stop("object 'ktab' expected")
+    lw <- X$lw
+    nlig <- length(lw)
+    cw <- X$cw
+    ncol <- length(cw)
+    ntab <- length(X$blo)
+    indicablo <- X$TC[, 1]
+    labels <- tab.names(X)
+    sep <- list()
+    lwsqrt <- sqrt(lw)
+    for (k in 1:ntab) {
+        ak <- sqrt(cw[indicablo == k])
+        wk <- as.matrix(X[[k]]) * lwsqrt
+        wk <- t(t(wk) * ak)
+        wk <- wk %*% t(wk)
+        sep[[k]] <- wk
+    }
+    if(is.null(whichinrow))
+ 	whichinrow <- 1:ntab
+    if(is.null(whichincol))
+ 	whichincol <- 1:ntab
+    old.par <- par(no.readonly = TRUE)
+    on.exit(par(old.par))
+    oma <- c(2, 2, 1, 1)
+    par(mfrow = c(length(whichinrow), length(whichincol)), mar = rep(gap/2,4), oma = oma)
+    for (i in whichinrow) {
+         for (j in whichincol) {
+             if (i == j) {
+                 plot.default(0, 0, type = "n", asp = 1, xlab = "", 
+                   ylab = "", xaxt = "n", yaxt = "n", xlim = c(0, 
+                     1), ylim = c(0, 1), xaxs = "i", yaxs = "i", 
+                   frame.plot = FALSE)
+                 l.wid <- strwidth(labels, "user")
+                 cex.labels <- max(0.8, min(2, 0.9/max(l.wid)))
+                 text(0.5, 0.5, labels[i], cex = cex.labels, font = 1)
+             }
+             else if (i > j) {
+ 				rv1 <- RV.rtest(as.data.frame(sep[[i]]),as.data.frame(sep[[j]]),nrepet=nrepet)
+ 				sim <- rv1$sim 
+ 				obs <- rv1$obs
+ 				titre <- paste("RV = ",round(obs,digits)," (p = ",rv1$pvalue,")",sep="")
+                 hist.simul.util(sim, obs, title = titre, nclass = nclass, 
+                   coeff = coeff)
+             }
+             else if (j > i) {
+ 				image(sep[[i]]%*%t(sep)[[j]],col=col,...)
+             }
+         }
+     }
+ }
+# graphical representation 
+kRVplot(ktab1)
+}}}
+
+
+= Links: =
+
+ * [http://pbil.univ-lyon1.fr/ADE-4/home.php?lang=eng ade4 home page]
+ * [http://pbil.univ-lyon1.fr/R/pdf/course7.pdf Introduction to K-table analyses] proposed by A.-B. Dufour
+ * [http://cran.r-project.org/web/packages/ade4/index.html ade4]: "Analysis of Ecological Data : Exploratory and Euclidean methods in Environmental sciences"
+
+= Unexhaustive references =
+ * Carrol, J. D. (1968). A generalization of canonical correlation analysis to three or more sets of variables. Proceeding of the 76th Convention of the American Psychological Association 3: 227-228.
+ * Casin, P. (2001). A generalization of principal component analysis to K sets of variables. Comput. Stat. and Data An. 35: 417-428.
+ * Chessel, D. and Hanafi, M. (1996). Analyses de la co-inertie de K nuages de points. Revue de Statistique Appliquée 44: 35-60.
+ *  De Jong, S., Heidema, J. and van der Knaap, H. C. M. (1998). Generalized procrustes analysis of coffee brands tested by five European sensory panels. Food Quality and Preference 9: 111-114.
+ * Dolédec, S. and Chessel, D. (1994). Co-inertia analysis: an alternative method for studying species-environment relationships. Freshwater Biology, 31: 277-294.
+ * Dray, S., Chessel, D. and Thioulouse, J. (2003) Co-inertia analysis and the linking of ecological data tables. Ecology, 84: 3078-3089.
+ * Escofier, B. and Pages, J. (1994). Multiple factor analysis (AFMULT package). Computational Statistics & Data Analysis 18: 121-140.
+ * Escoufier, Y. (1973). Le traitement des variables vectorielles. Biometrics 29: 750-760.
+ * Gower, J. C. (1975). Generalized procustes analysis. Psychometrika 40: 33-51.
+ *  Gauch, H. G. (1982); Multivariate analysis in community ecology. Cambridge University Press Cambridge, UK.
+ * Heo, M. & Gabriel, K.R. (1997) A permutation test of association between configurations by means of the RV coefficient.Communications in Statistics - Simulation and Computation, 27: 843-856.
+ * Lavit, C., Escoufier, Y., Sabatier, R. and Traissac, P. (1994). The ACT (STATIS method). Computational Statistics & Data Analysis 18: 97-119.
+ * Meyners, M., Kunert, J. and Qannari, E. M. (2000). Comparing generalized procrustes analysis and statis. Food Quality and Preference 11: 77-83.
+ * Van de Geer, J. P. (1984). Linear relations among K sets of variables. Psychometrika 49: 79-94. 

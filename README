@@ -1,0 +1,11 @@
+Package: ktabtools
+Type: Package
+Title: Additional R functions related to K-table analyses
+Version: 1.0
+Date: 2012-11-21
+Author: Pierre Bady <pierre.bady@unil.ch>
+Maintainer: Pierre Bady <pierre.bady@unil.ch>
+Depends: R (>= 2.15.0),ade4, mixOmics
+Suggests: ade4, boot
+Description: This package contains additional R functions related to K-table analyses and Multiblock-(s)pls.
+License: GPL version 2 or newer

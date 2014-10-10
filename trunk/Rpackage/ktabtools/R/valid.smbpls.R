@@ -1,0 +1,5 @@
+valid.smbpls <-
+function (...) 
+{
+    .NotYetImplemented()
+}

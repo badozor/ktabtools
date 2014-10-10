@@ -1,0 +1,5 @@
+summary.smbpls <-
+function (...) 
+{
+    .NotYetImplemented()
+}

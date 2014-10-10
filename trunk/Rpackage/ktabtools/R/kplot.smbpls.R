@@ -1,0 +1,5 @@
+kplot.smbpls <-
+function (...) 
+{
+    .NotYetImplemented()
+}
