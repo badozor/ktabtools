@@ -1,5 +1,6 @@
 smbpls.default <-
-function(X, Y, keepX = NULL, keepY = NULL, nf = 3, option = c("inertia","lambda1", "uniform", "internal"), deflation = c("super","block"), tol = 1e-06,
+function(X, Y, keepX = NULL, keepY = NULL, nf = 3, option = c("inertia","lambda1", "uniform", "internal"), 
+		deflation = c("super","block"), tol = 1e-06,
 		max.iter = 100, center.x=TRUE,scale.x=TRUE,center.y=TRUE,scale.y=TRUE,...) 
 {
     if (!inherits(Y, "data.frame")) 
