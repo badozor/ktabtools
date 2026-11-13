@@ -1,3 +1,8 @@
+<img src="logo/ktabtools_hex.png" align="right" width="130" alt="ktabtools logo"/>
+
+## R package ktabtools ##
+
+```
 Package: ktabtools
 Type: Package
 Title: Additional R functions related to K-table analyses
@@ -9,3 +14,4 @@ Depends: R (>= 2.15.0),ade4, mixOmics
 Suggests: ade4, boot
 Description: This package contains additional R functions related to K-table analyses and Multiblock-(s)pls.
 License: GPL version 2 or newer
+```
