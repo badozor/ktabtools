@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="600" viewBox="0 0 520 600">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2f4858"/>
+      <stop offset="1" stop-color="#172530"/>
+    </linearGradient>
+    <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#8DC63F"/></marker>
+  </defs>
+  <polygon points="260,20 502.5,160 502.5,440 260,580 17.5,440 17.5,160" fill="#8DC63F"/>
+  <polygon points="260,38 486.9,169 486.9,431 260,562 33.1,431 33.1,169" fill="url(#bg)"/>
+
+  <g transform="translate(0,-32)">
+  <!-- K tableaux empilés -->
+  <g opacity="0.35"><rect x="118" y="232" width="96" height="124" rx="5" fill="#2a3e4c" stroke="#ffffff" stroke-width="3"/></g><g opacity="0.50"><rect x="134" y="216" width="96" height="124" rx="5" fill="#2a3e4c" stroke="#ffffff" stroke-width="3"/></g><g opacity="0.65"><rect x="150" y="200" width="96" height="124" rx="5" fill="#2a3e4c" stroke="#ffffff" stroke-width="3"/></g><g opacity="1.00"><rect x="166" y="184" width="96" height="124" rx="5" fill="#20323f" stroke="#ffffff" stroke-width="3"/><rect x="166" y="184" width="96" height="22" rx="5" fill="#8DC63F"/><line x1="198.0" y1="184" x2="198.0" y2="308" stroke="#ffffff" stroke-opacity="0.6" stroke-width="2"/><line x1="230.0" y1="184" x2="230.0" y2="308" stroke="#ffffff" stroke-opacity="0.6" stroke-width="2"/><line x1="166" y1="226.4" x2="262" y2="226.4" stroke="#ffffff" stroke-opacity="0.6" stroke-width="2"/><line x1="166" y1="246.8" x2="262" y2="246.8" stroke="#ffffff" stroke-opacity="0.6" stroke-width="2"/><line x1="166" y1="267.2" x2="262" y2="267.2" stroke="#ffffff" stroke-opacity="0.6" stroke-width="2"/><line x1="166" y1="287.6" x2="262" y2="287.6" stroke="#ffffff" stroke-opacity="0.6" stroke-width="2"/></g>
+  <text x="190" y="385" font-family="DejaVu Serif" font-style="italic" font-size="26" fill="#ffffff" text-anchor="middle">X<tspan font-size="17" dy="6">1</tspan><tspan dy="-6"> … </tspan>X<tspan font-size="17" dy="6">K</tspan></text>
+
+  <!-- vers le compromis -->
+  <line x1="284" y1="272" x2="312" y2="272" stroke="#8DC63F" stroke-width="5" stroke-linecap="round" marker-end="url(#ar)"/>
+
+  <!-- espace commun (co-inertie multiple) -->
+  <g stroke="#ffffff" stroke-opacity="0.6" stroke-width="2.5">
+    <line x1="330" y1="272" x2="430" y2="272"/>
+    <line x1="380" y1="212" x2="380" y2="332"/>
+  </g>
+  <ellipse cx="380" cy="272" rx="44" ry="26" transform="rotate(-32 380 272)" fill="#8DC63F" fill-opacity="0.12" stroke="#8DC63F" stroke-width="3"/>
+  <circle cx="357.7" cy="276.4" r="6" fill="#ffffff"/><circle cx="381.7" cy="252.0" r="6" fill="#8DC63F"/><circle cx="369.4" cy="260.0" r="6" fill="#ffffff"/><circle cx="397.6" cy="262.7" r="6" fill="#8DC63F"/><circle cx="398.8" cy="256.1" r="6" fill="#ffffff"/><circle cx="385.0" cy="266.5" r="6" fill="#8DC63F"/><circle cx="369.3" cy="279.9" r="6" fill="#ffffff"/><circle cx="359.5" cy="281.9" r="6" fill="#8DC63F"/><circle cx="390.8" cy="265.7" r="6" fill="#ffffff"/><circle cx="381.9" cy="288.9" r="6" fill="#8DC63F"/><circle cx="378.7" cy="268.0" r="6" fill="#ffffff"/><circle cx="380.5" cy="267.4" r="6" fill="#8DC63F"/><circle cx="372.8" cy="273.6" r="6" fill="#ffffff"/><circle cx="411.0" cy="252.8" r="6" fill="#8DC63F"/>
+
+  </g>
+  <text x="260" y="455" font-family="DejaVu Sans Mono" font-weight="bold" font-size="58" fill="#ffffff" text-anchor="middle"><tspan fill="#8DC63F">ktab</tspan>tools</text>
+  <text x="260" y="486" font-family="DejaVu Sans" font-size="15" fill="#8DC63F" text-anchor="middle" letter-spacing="1.5">K-table &amp; multiblock analyses</text>
+</svg>
